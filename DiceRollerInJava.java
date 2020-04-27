@@ -18,9 +18,14 @@ public class DiceRollerInJava {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
         while (true) {
-            int result = dice.roll();
-            System.out.println("dice face value:" + result);
-            dice.draw(result);
+            int[] result = new int[2];
+            for (int i=0; i<2;i++)
+            {
+            result[i] = dice.roll();
+            System.out.println("dice face value:" + result[i]);
+            dice.draw(result[i]);
+            }
+
  
             System.out.println("Roll again? (type no to quit):");
             String input = scanner.nextLine();
@@ -36,7 +41,7 @@ public class DiceRollerInJava {
     // Draw the dice face using ascii characters
     private void draw(int value) {
         int[][] displayVal = faceConfig[value - 1];
-        System.out.println("-------");
+        System.out.println("-----");
  
         for (int i = 0; i < 3; i++) {
             System.out.print("|");
@@ -44,12 +49,12 @@ public class DiceRollerInJava {
                 if (displayVal[i][j] == 1) {
                     System.out.print("o");
                 } else {
-                    System.out.print("  ");
+                    System.out.print(" ");
                 }
             }
             System.out.println("|");
         }
-        System.out.println("-------");
+        System.out.println("-----");
  
     }
  
