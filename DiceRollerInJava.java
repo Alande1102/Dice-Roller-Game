@@ -18,17 +18,22 @@ public class DiceRollerInJava {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
         while (true) {
-            int[] result = new int[2];
-            for (int i=0; i<2;i++)
+            System.out.println("How many dice would you like to roll? ");
+            int amount = scanner.nextInt(); // amount of dice to roll
+            int[] result = new int[amount];
+            int total = 0;
+            for (int i=0; i<amount;i++)
             {
             result[i] = dice.roll();
             System.out.println("dice face value:" + result[i]);
             dice.draw(result[i]);
+            total = total + result[i]; // calculate total value of dice rolled
             }
 
- 
+            System.out.println("Total value: " + total); // print total value of dice
             System.out.println("Roll again? (type no to quit):");
             String input = scanner.nextLine();
+            input = scanner.nextLine();
             if (input.equalsIgnoreCase("n") || 
                     input.equalsIgnoreCase("no")) {
                 System.out.println("Bye!");
