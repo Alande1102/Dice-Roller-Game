@@ -31,6 +31,51 @@ public class DiceRollerInJava {
             }
 
             System.out.println("Total value: " + total); // print total value of dice
+            if ((amount == 2) && (total == 2)){
+                System.out.println("Snakes eyes!");
+            }
+            else if ((amount != 2) && (total == 2)){
+                System.out.println("Two for you!");
+            }
+            else if ((amount == 2) && (total == 3 )){
+                System.out.println("Small ace deuce, can't produce!");
+            }
+            else if ((amount != 2) && (total == 3 )){
+                System.out.println("Winner on the dark side!");
+            }
+            else if (total == 4 ){
+                System.out.println("Little Joe!");
+            }
+            else if (total == 5 ){
+                System.out.println("After five, the fields alive!");
+            }
+            else if (total == 6 ){
+                System.out.println("Easy six, Jimmy Hicks!");
+            }
+            else if (total == 7 ){
+                System.out.println("Seven's a bruiser, the front line's a loser!");
+            }
+            else if (total == 8 ){
+                System.out.println("A square pair!");
+            }
+            else if (total == 9 ){
+                System.out.println("Centre field!");
+            }
+            else if ((amount == 2) && (total == 10) && (result[0] == 4 || result[0] == 6 )){
+                System.out.println("Tennessee!");
+            }
+            else if ((amount == 2) && (total == 10) && (result[0] == 5)){
+                System.out.println("Puppy paws!");
+            }
+            else if (amount == 2 && total == 11){
+                System.out.println("Six five, no jive!");
+            }
+            else if (amount != 2 && total == 11){
+                System.out.println("Yo eleven!");
+            } 
+            else if (total == 12 ){
+                System.out.println("Triple dipple!");
+            }
             System.out.println("Roll again? (type no to quit):");
             String input = scanner.nextLine();
             input = scanner.nextLine();
