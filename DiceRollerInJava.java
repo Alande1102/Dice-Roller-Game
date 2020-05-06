@@ -85,6 +85,7 @@ public class DiceRollerInJava {
             }
             System.out.println("Roll again? (type no to quit):");
             String input = scanner.nextLine();
+            input = scanner.nextLine();
             if (input.equalsIgnoreCase("n") || 
                     input.equalsIgnoreCase("no")) {
                 System.out.println("Bye!");
