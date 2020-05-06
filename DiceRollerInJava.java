@@ -26,16 +26,24 @@ public class DiceRollerInJava {
             for (int i=0; i<2;i++)
             {
             result[i] = dice.roll();
+            total = total + result[i]; // calculate total value of dice rolled
+            }
+            if (option == 2){
+                System.out.println("What is your over under number?");
+                int overunder = scanner.nextInt();
+                System.out.println("Would you like to: \r\n1. Guess OVER? \r\n2. Guess UNDER?");
+                int userselection = scanner.nextInt();
+                if (userselection == 1 || userselection == 2){
+                    Win = OverUnder(total, overunder, userselection);
+                }
+            }
+            for (int i = 0; i<2; i++){
             System.out.println("dice face value:" + result[i]);
             dice.draw(result[i]);
-            total = total + result[i]; // calculate total value of dice rolled
             }
             switch (option){
                 case 1:
                     // Guess exact number
-                    break;
-                case 2:
-                    // Guess over under
                     break;
                 case 3:
                     Win = RollAgainst(result[0], result[1]);
@@ -128,4 +136,23 @@ public class DiceRollerInJava {
         else 
             return false;
     }
-}
+
+    private static boolean OverUnder(int RolledNumber, int PlayerNumber, int OverOrUnder)
+    {
+        if (OverOrUnder == 1){
+            if (RolledNumber > PlayerNumber)
+                return true;
+            else
+                return false;
+        }
+        if (OverOrUnder == 2)   {
+            if (RolledNumber < PlayerNumber)
+                return true;
+            else
+                return false;
+        }
+        else 
+            return false;
+    }
+
+    
