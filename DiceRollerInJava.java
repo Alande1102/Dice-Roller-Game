@@ -18,30 +18,40 @@ public class DiceRollerInJava {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
         while (true) {
-            System.out.println("How many dice would you like to roll? ");
-            int amount = scanner.nextInt(); // amount of dice to roll
-            int[] result = new int[amount];
+            System.out.println("Would you like to: \r\n1. Guess an exact number \r\n2. Guess over under \r\n3. Roll against the AI "); 
+            int option = scanner.nextInt();
+            int[] result = new int[2];
             int total = 0;
-            for (int i=0; i<amount;i++)
+            boolean Win = false;
+            for (int i=0; i<2;i++)
             {
             result[i] = dice.roll();
             System.out.println("dice face value:" + result[i]);
             dice.draw(result[i]);
             total = total + result[i]; // calculate total value of dice rolled
             }
+            switch (option){
+                case 1:
+                    // Guess exact number
+                    break;
+                case 2:
+                    // Guess over under
+                    break;
+                case 3:
+                    Win = RollAgainst(result[0], result[1]);
+                    break;
+            }
+            if (Win)
+                System.out.println("You Win!");
+            else 
+                System.out.println("You Lose");
 
             System.out.println("Total value: " + total); // print total value of dice
-            if ((amount == 2) && (total == 2)){
+            if (total == 2){
                 System.out.println("Snakes eyes!");
             }
-            else if ((amount != 2) && (total == 2)){
-                System.out.println("Two for you!");
-            }
-            else if ((amount == 2) && (total == 3 )){
+            else if (total == 3 ){
                 System.out.println("Small ace deuce, can't produce!");
-            }
-            else if ((amount != 2) && (total == 3 )){
-                System.out.println("Winner on the dark side!");
             }
             else if (total == 4 ){
                 System.out.println("Little Joe!");
@@ -61,24 +71,20 @@ public class DiceRollerInJava {
             else if (total == 9 ){
                 System.out.println("Centre field!");
             }
-            else if ((amount == 2) && (total == 10) && (result[0] == 4 || result[0] == 6 )){
+            else if ((total == 10) && (result[0] == 4 || result[0] == 6 )){
                 System.out.println("Tennessee!");
             }
-            else if ((amount == 2) && (total == 10) && (result[0] == 5)){
+            else if ((total == 10) && (result[0] == 5)){
                 System.out.println("Puppy paws!");
             }
-            else if (amount == 2 && total == 11){
+            else if (total == 11){
                 System.out.println("Six five, no jive!");
             }
-            else if (amount != 2 && total == 11){
-                System.out.println("Yo eleven!");
-            } 
             else if (total == 12 ){
                 System.out.println("Triple dipple!");
             }
             System.out.println("Roll again? (type no to quit):");
             String input = scanner.nextLine();
-            input = scanner.nextLine();
             if (input.equalsIgnoreCase("n") || 
                     input.equalsIgnoreCase("no")) {
                 System.out.println("Bye!");
@@ -112,5 +118,13 @@ public class DiceRollerInJava {
     private int roll() {
         Random r = new Random();
         return r.nextInt(6) + 1;
+    }
+
+    private static boolean RollAgainst(int PlayerDice, int AIDice)
+    {
+        if (PlayerDice > AIDice)
+            return true;
+        else 
+            return false;
     }
 }
