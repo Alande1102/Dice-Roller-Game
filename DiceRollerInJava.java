@@ -17,6 +17,16 @@ public class DiceRollerInJava {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
+
+        System.out.println("Press Enter To Continue: ");
+            String mm = scanner.nextLine();
+            if (mm.equalsIgnoreCase(" ") || 
+                mm.equalsIgnoreCase("yes")) {
+                scanner.close();
+                return;
+}
+
+
         while (true) {
             System.out.println("Would you like to: \r\n1. Guess an exact number \r\n2. Guess over under \r\n3. Roll against the AI "); 
             int option = scanner.nextInt();
@@ -154,5 +164,4 @@ public class DiceRollerInJava {
         else 
             return false;
     }
-
-    
+}
