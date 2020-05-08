@@ -18,7 +18,7 @@ public class DiceRollerInJava {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
 
-        System.out.println("Press Enter To Continue: ");
+        System.out.println("Welcome To The Dice Roller Game! Press Enter To Continue: ");
             String mm = scanner.nextLine();
             if (mm.equalsIgnoreCase(" ") || 
                 mm.equalsIgnoreCase("yes")) {
