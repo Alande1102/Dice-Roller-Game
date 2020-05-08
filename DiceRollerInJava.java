@@ -28,7 +28,7 @@ public class DiceRollerInJava {
 
 
         while (true) {
-            System.out.println("Would you like to: \r\n1. Guess an exact number \r\n2. Guess over under \r\n3. Roll against the AI "); 
+            System.out.println("Would you like to:\r\n1. Guess over under \r\n2. Roll against the AI "); 
             int option = scanner.nextInt();
             int[] result = new int[2];
             int total = 0;
