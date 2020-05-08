@@ -153,6 +153,8 @@ public class DiceRollerInJava {
 
     private static boolean RollAgainst(int PlayerDice, int AIDice)
     {
+        System.out.println("Your dice value is: " + PlayerDice);
+        System.out.println("The computers dice value is: " + AIDice);
         if (PlayerDice > AIDice)
             return true;
         else 
