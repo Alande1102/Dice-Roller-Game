@@ -18,7 +18,7 @@ public class DiceRollerInJava {
         Scanner scanner = new Scanner(System.in);
         DiceRollerInJava dice = new DiceRollerInJava();
 
-        System.out.println("Welcome To The Dice Roller Game! Press Enter To Continue: ");
+        System.out.println("Press Enter To Continue: ");
             String mm = scanner.nextLine();
             if (mm.equalsIgnoreCase(" ") || 
                 mm.equalsIgnoreCase("yes")) {
@@ -28,7 +28,7 @@ public class DiceRollerInJava {
 
 
         while (true) {
-            System.out.println("Would you like to:\r\n1. Guess over under \r\n2. Roll against the AI "); 
+            System.out.println("Would you like to:\r\n1. Guess the exact number \r\n2. Guess over under \r\n3. Roll against the AI "); 
             int option = scanner.nextInt();
             int[] result = new int[2];
             int total = 0;
@@ -37,6 +37,18 @@ public class DiceRollerInJava {
             {
             result[i] = dice.roll();
             total = total + result[i]; // calculate total value of dice rolled
+            }
+            if (option == 1)
+            {
+                System.out.println("What is the number you would like to choose?");
+                int number = scanner.nextInt();
+                if (number == total){
+                    Win = true;
+                }
+                else 
+                {
+                Win = false;
+                }
             }
             if (option == 2){
                 System.out.println("What is your over under number?");
